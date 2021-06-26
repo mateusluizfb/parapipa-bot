@@ -1,10 +1,12 @@
 const Discord = require("discord.js")
 
+console.log("Starting Bot");
+console.log(`Token: ${process.env.BOT_TOKEN}`);
+
 const client = new Discord.Client()
 client.login(process.env.BOT_TOKEN)
 
 // install ffmpeg
-
 client.on('voiceStateUpdate', (oldState, newState) => {
     // check for bot
 
