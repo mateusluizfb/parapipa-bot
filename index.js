@@ -20,14 +20,18 @@ app.listen(process.env.PORT || 3000, () => {
   	const args = message.content.slice(prefix.length).trim().split(/ +/);
   	const command = args.shift().toLowerCase();
 
-  	if (command === 'ligar') {
+  	if (command === '-ligar') {
       BOT_TOGGLE = true
-  		message.channel.send('ParapipaBot ligado.');
-  	} else if (command === 'desligar') {
+      const emoji = client.emojis.cache.find(emoji => emoji.name === "rodney")
+  		message.channel.send(`ParapipaBot ligado ${emoji}`);
+  	} else if (command === '-desligar') {
       BOT_TOGGLE = false
-  		message.channel.send('ParapipaBot desligado.');
-  	} else if (command === 'help') {
-      message.channel.send('mande parapipa-ligar ou parapipa-desligar');
+      const emoji = client.emojis.cache.find(emoji => emoji.name === "rodinelson")
+      message.channel.send(`ParapipaBot desligado ${emoji}`);
+  	} else if (command === '-help') {
+      message.channel.send('Parapipa parapupa! Mande parapipa-ligar ou parapipa-desligar!! E parapipa-agora para ver o estado atual :)');
+    } else if (command === '-agora') {
+      message.channel.send(`Parapipa parapupa está: ${BOT_TOGGLE}`);
     }
   });
 
