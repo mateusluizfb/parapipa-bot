@@ -20,13 +20,13 @@ app.listen(process.env.PORT || 3000, () => {
   	const args = message.content.slice(prefix.length).trim().split(/ +/);
   	const command = args.shift().toLowerCase();
 
-  	if (command === 'parapipa-ligar') {
+  	if (command === 'ligar') {
       BOT_TOGGLE = true
   		message.channel.send('ParapipaBot ligado.');
-  	} else if (command === 'parapipa-desligar') {
+  	} else if (command === 'desligar') {
       BOT_TOGGLE = false
   		message.channel.send('ParapipaBot desligado.');
-  	} else if (command === 'parapipa-help') {
+  	} else if (command === 'help') {
       message.channel.send('mande parapipa-ligar ou parapipa-desligar');
     }
   });
@@ -41,7 +41,7 @@ app.listen(process.env.PORT || 3000, () => {
       console.log(newState.member.user)
 
       let voiceChannel = newState.member.voice.channel
-      if(voiceChannel == null || BOT_TOGGLE == true) return
+      if(voiceChannel == null || BOT_TOGGLE == false) return
 
       voiceChannel.join(voiceChannel).then(connection =>{
         const dispatcher = connection.play('./minion.mp3')
