@@ -14,6 +14,7 @@ app.listen(process.env.PORT || 3000, () => {
   const client = new Discord.Client()
 
   client.on('message', message => {
+    prefix = 'parapipa'
   	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   	const args = message.content.slice(prefix.length).trim().split(/ +/);
