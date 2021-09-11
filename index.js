@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const dispatcher = require('./lib/dispatcher')
+const command_dispatcher = require('./lib/command_dispatcher')
 require('dotenv').config()
 
 app.listen(process.env.PORT || 3000, () => {
@@ -9,5 +9,5 @@ app.listen(process.env.PORT || 3000, () => {
   console.log(`Token: ${process.env.BOT_TOKEN}`)
   console.log(`For user ${process.env.USER_ID}`)
 
-  dispatcher();
+  command_dispatcher();
 })
