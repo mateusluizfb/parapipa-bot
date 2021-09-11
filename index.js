@@ -48,7 +48,7 @@ app.listen(process.env.PORT || 3000, () => {
       if(voiceChannel == null || BOT_TOGGLE == false) return
 
       voiceChannel.join(voiceChannel).then(connection =>{
-        const dispatcher = connection.play('./minion.mp3')
+        const dispatcher = connection.play('../sounds/minion.mp3')
         dispatcher.on("finish", end => { voiceChannel.leave() })
       }).catch(err => console.log(err))
 
